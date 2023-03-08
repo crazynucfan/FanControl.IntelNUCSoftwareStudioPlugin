@@ -1,0 +1,1702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="PerformanceTuningService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body />
+                          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body />
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <sp:SpnegoContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys />
+                                  </wsp:Policy>
+                                </sp:SpnegoContextToken>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic256 />
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict />
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp />
+                            <sp:EncryptSignature />
+                            <sp:OnlySignEntireHeadersAndBody />
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:Wss11>
+                          <wsp:Policy />
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens />
+                            <sp:RequireClientEntropy />
+                            <sp:RequireServerEntropy />
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetPowerLevelControlSupported_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetPowerLevelControlSupported_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentPowerSettings_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentPowerSettings_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedPowerProfiles_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedPowerProfiles_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_IsFanEcSupported_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_IsFanEcSupported_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_IsFanProfilesSupported_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_IsFanProfilesSupported_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedFanModes_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedFanModes_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanMode_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanMode_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetCustomPowerSetting_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetCustomPowerSetting_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_ApplyBiosPowerProfile_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_ApplyBiosPowerProfile_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SupportedFanTypes_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SupportedFanTypes_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanCustom_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanCustom_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanOffConfiguration_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanOffConfiguration_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData23_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData23_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileDataRN_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileDataRN_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanModeRN_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IPerformanceTuningServiceContract_SetFanModeRN_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:element name="GetPowerLevelControlSupported">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPowerLevelControlSupportedResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetPowerLevelControlSupportedResult" nillable="true" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCurrentPowerSettings">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCurrentPowerSettingsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="GetCurrentPowerSettingsResult" type="q1:PowerSetting" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupportedPowerProfiles">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupportedPowerProfilesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="GetSupportedPowerProfilesResult" nillable="true" type="q2:ArrayOfPowerProfile" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsFanEcSupported">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsFanEcSupportedResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IsFanEcSupportedResult" nillable="true" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsFanProfilesSupported">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsFanProfilesSupportedResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IsFanProfilesSupportedResult" nillable="true" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFanProfileData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="fanProfileName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFanProfileDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="GetFanProfileDataResult" type="q3:FanProfile" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupportedFanModes">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupportedFanModesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetSupportedFanModesResult" nillable="true" type="q4:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCurrentBiosFanModeName">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCurrentBiosFanModeNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetCurrentBiosFanModeNameResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanMode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FanMode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanModeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetFanModeResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetCustomPowerSetting">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="PowerSetting" type="q5:PowerSetting" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetCustomPowerSettingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetCustomPowerSettingResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ApplyBiosPowerProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PowerProfileName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ApplyBiosPowerProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ApplyBiosPowerProfileResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SupportedFanTypes">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SupportedFanTypesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SupportedFanTypesResult" nillable="true" type="q6:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanCustom">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="FanSettings" type="q7:FanControl.AllFanSettings" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanCustomResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetFanCustomResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanOffConfiguration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FanMode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="isFanOff" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanOffConfigurationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetFanOffConfigurationResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFanProfileData23">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="fanProfileName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFanProfileData23Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="GetFanProfileData23Result" type="q8:FanProfile23" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanDutyCycleFixedMode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="selectedFanMode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="FanBytes" nillable="true" type="xs:base64Binary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanDutyCycleFixedModeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetFanDutyCycleFixedModeResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFanProfileDataRN">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFanProfileDataRNResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="GetFanProfileDataRNResult" nillable="true" type="q9:ArrayOfFanProfileRN" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanModeRN">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FanMode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="FanType" nillable="true" type="xs:string" />
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" minOccurs="0" name="fanProfiles" nillable="true" type="q10:ArrayOfFanProfileRN" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetFanModeRNResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetFanModeRNResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PerformanceTuningLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="PowerSetting">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PL1" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="PL2" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="Tau" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PowerSetting" nillable="true" type="tns:PowerSetting" />
+      <xs:complexType name="ArrayOfPowerProfile">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PowerProfile" type="tns:PowerProfile" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPowerProfile" nillable="true" type="tns:ArrayOfPowerProfile" />
+      <xs:complexType name="PowerProfile">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CpuMode" type="tns:CpuMode" />
+          <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PL1" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="PL2" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="Tau" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="TauHt" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PowerProfile" nillable="true" type="tns:PowerProfile" />
+      <xs:simpleType name="CpuMode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Unknown" />
+          <xs:enumeration value="Performance" />
+          <xs:enumeration value="Balanced" />
+          <xs:enumeration value="BatterySaver" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="CpuMode" nillable="true" type="tns:CpuMode" />
+      <xs:complexType name="FanProfile">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fanSettings" nillable="true" type="tns:ArrayOfFanSetting" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="profile" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FanProfile" nillable="true" type="tns:FanProfile" />
+      <xs:complexType name="ArrayOfFanSetting">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FanSetting" type="tns:FanSetting" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfFanSetting" nillable="true" type="tns:ArrayOfFanSetting" />
+      <xs:complexType name="FanSetting">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Configuration1" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Configuration2" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryDutyIncrement" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryFanOffTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryMaximumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryMinimumDuty" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryMinimumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryDutyIncrement" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryFanOffTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryMaximumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryMinimumDuty" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryMinimumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="primaryInputSourceConfiguration" type="tns:PrimaryInputSourceConfiguration" />
+          <xs:element minOccurs="0" name="secondaryInputSourceConfiguration" type="tns:SecondaryInputSourceConfiguration" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FanSetting" nillable="true" type="tns:FanSetting" />
+      <xs:simpleType name="PrimaryInputSourceConfiguration">
+        <xs:annotation>
+          <xs:appinfo>
+            <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Default" />
+          <xs:enumeration value="CPUTemperature" />
+          <xs:enumeration value="PCHTemperature" />
+          <xs:enumeration value="Sensor1Temperature" />
+          <xs:enumeration value="Sensor2Temperature" />
+          <xs:enumeration value="Sensor3Temperature" />
+          <xs:enumeration value="dGpuTemperature" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="PrimaryInputSourceConfiguration" nillable="true" type="tns:PrimaryInputSourceConfiguration" />
+      <xs:simpleType name="SecondaryInputSourceConfiguration">
+        <xs:annotation>
+          <xs:appinfo>
+            <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NoControlled" />
+          <xs:enumeration value="CPUTemperature" />
+          <xs:enumeration value="PCHTemperature" />
+          <xs:enumeration value="Sensor1Temperature" />
+          <xs:enumeration value="Sensor2Temperature" />
+          <xs:enumeration value="Sensor3Temperature" />
+          <xs:enumeration value="dGpuTemperature" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="SecondaryInputSourceConfiguration" nillable="true" type="tns:SecondaryInputSourceConfiguration" />
+      <xs:complexType name="FanControl.AllFanSettings">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fanSettings" nillable="true" type="tns:ArrayOfFanSetting" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FanControl.AllFanSettings" nillable="true" type="tns:FanControl.AllFanSettings" />
+      <xs:complexType name="FanProfile23">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fanSettings" nillable="true" type="tns:ArrayOfFanSetting23" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="profile" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FanProfile23" nillable="true" type="tns:FanProfile23" />
+      <xs:complexType name="ArrayOfFanSetting23">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FanSetting23" type="tns:FanSetting23" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfFanSetting23" nillable="true" type="tns:ArrayOfFanSetting23" />
+      <xs:complexType name="FanSetting23">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FanControlModeAndSpeedRampRateLimit" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="MaximumDutyCycle" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryDutyCycleIncrementAndSamplingPeriod" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryFanCutOffTemperatureOffsetAndRampDownRate" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryMinimumDutyCycleAndRampAcceleration" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryMinimumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryTemperatureSourceAndTemperatureHystersis" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="RampAccelerationTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryDutyCycleIncrementAndSamplingPeriod" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryFanCutOffTemperatureOffsetAndRampDownRate" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryMinimumDutyCycleAndRampAcceleration" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryMinimumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryRampAccelerationTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryTemperatureSourceAndTemperatureHystersis" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FanSetting23" nillable="true" type="tns:FanSetting23" />
+      <xs:complexType name="ArrayOfFanProfileRN">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FanProfileRN" type="tns:FanProfileRN" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfFanProfileRN" nillable="true" type="tns:ArrayOfFanProfileRN" />
+      <xs:complexType name="FanProfileRN">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrentBiosFanMode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fanSettings" nillable="true" type="tns:ArrayOfFanSettingRN" />
+          <xs:element minOccurs="0" name="fanType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="profile" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FanProfileRN" nillable="true" type="tns:FanProfileRN" />
+      <xs:complexType name="ArrayOfFanSettingRN">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FanSettingRN" type="tns:FanSettingRN" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfFanSettingRN" nillable="true" type="tns:ArrayOfFanSettingRN" />
+      <xs:complexType name="FanSettingRN">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FanControlModeAndSpeedRampRateLimit" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="FanModeBytes" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="FanModeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaximumDutyCycle" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryDutyCycleIncrementAndSamplingPeriod" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryFanCutOffTemperatureOffsetAndRampDownRate" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryMinimumDutyCycleAndRampAcceleration" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryMinimumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PrimaryTemperatureSourceAndTemperatureHystersis" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="RampAccelerationTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryDutyCycleIncrementAndSamplingPeriod" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryFanCutOffTemperatureOffsetAndRampDownRate" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryMinimumDutyCycleAndRampAcceleration" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryMinimumTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryRampAccelerationTemperature" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SecondaryTemperatureSourceAndTemperatureHystersis" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FanSettingRN" nillable="true" type="tns:FanSettingRN" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetPowerLevelControlSupported_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPowerLevelControlSupported" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetPowerLevelControlSupported_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPowerLevelControlSupportedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetCurrentPowerSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPowerSettings" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetCurrentPowerSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPowerSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetSupportedPowerProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedPowerProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetSupportedPowerProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedPowerProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_IsFanEcSupported_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFanEcSupported" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_IsFanEcSupported_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFanEcSupportedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_IsFanProfilesSupported_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFanProfilesSupported" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_IsFanProfilesSupported_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFanProfilesSupportedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetFanProfileData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFanProfileData" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetFanProfileData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFanProfileDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetSupportedFanModes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedFanModes" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetSupportedFanModes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupportedFanModesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentBiosFanModeName" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentBiosFanModeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanMode" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetCustomPowerSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCustomPowerSetting" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetCustomPowerSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCustomPowerSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_ApplyBiosPowerProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApplyBiosPowerProfile" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_ApplyBiosPowerProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApplyBiosPowerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SupportedFanTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:SupportedFanTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SupportedFanTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SupportedFanTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanCustom" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanOffConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanOffConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanOffConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanOffConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetFanProfileData23_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFanProfileData23" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetFanProfileData23_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFanProfileData23Response" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanDutyCycleFixedMode" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanDutyCycleFixedModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetFanProfileDataRN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFanProfileDataRN" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_GetFanProfileDataRN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFanProfileDataRNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanModeRN_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanModeRN" />
+  </wsdl:message>
+  <wsdl:message name="IPerformanceTuningServiceContract_SetFanModeRN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetFanModeRNResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPerformanceTuningServiceContract">
+    <wsdl:operation name="GetPowerLevelControlSupported">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetPowerLevelControlSupported" message="tns:IPerformanceTuningServiceContract_GetPowerLevelControlSupported_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetPowerLevelControlSupportedResponse" message="tns:IPerformanceTuningServiceContract_GetPowerLevelControlSupported_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentPowerSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetCurrentPowerSettings" message="tns:IPerformanceTuningServiceContract_GetCurrentPowerSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetCurrentPowerSettingsResponse" message="tns:IPerformanceTuningServiceContract_GetCurrentPowerSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupportedPowerProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetSupportedPowerProfiles" message="tns:IPerformanceTuningServiceContract_GetSupportedPowerProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetSupportedPowerProfilesResponse" message="tns:IPerformanceTuningServiceContract_GetSupportedPowerProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFanEcSupported">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/IsFanEcSupported" message="tns:IPerformanceTuningServiceContract_IsFanEcSupported_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/IsFanEcSupportedResponse" message="tns:IPerformanceTuningServiceContract_IsFanEcSupported_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFanProfilesSupported">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/IsFanProfilesSupported" message="tns:IPerformanceTuningServiceContract_IsFanProfilesSupported_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/IsFanProfilesSupportedResponse" message="tns:IPerformanceTuningServiceContract_IsFanProfilesSupported_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFanProfileData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileData" message="tns:IPerformanceTuningServiceContract_GetFanProfileData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileDataResponse" message="tns:IPerformanceTuningServiceContract_GetFanProfileData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupportedFanModes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetSupportedFanModes" message="tns:IPerformanceTuningServiceContract_GetSupportedFanModes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetSupportedFanModesResponse" message="tns:IPerformanceTuningServiceContract_GetSupportedFanModes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentBiosFanModeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetCurrentBiosFanModeName" message="tns:IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetCurrentBiosFanModeNameResponse" message="tns:IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFanMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanMode" message="tns:IPerformanceTuningServiceContract_SetFanMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanModeResponse" message="tns:IPerformanceTuningServiceContract_SetFanMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomPowerSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetCustomPowerSetting" message="tns:IPerformanceTuningServiceContract_SetCustomPowerSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetCustomPowerSettingResponse" message="tns:IPerformanceTuningServiceContract_SetCustomPowerSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplyBiosPowerProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/ApplyBiosPowerProfile" message="tns:IPerformanceTuningServiceContract_ApplyBiosPowerProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/ApplyBiosPowerProfileResponse" message="tns:IPerformanceTuningServiceContract_ApplyBiosPowerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SupportedFanTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SupportedFanTypes" message="tns:IPerformanceTuningServiceContract_SupportedFanTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SupportedFanTypesResponse" message="tns:IPerformanceTuningServiceContract_SupportedFanTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFanCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanCustom" message="tns:IPerformanceTuningServiceContract_SetFanCustom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanCustomResponse" message="tns:IPerformanceTuningServiceContract_SetFanCustom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFanOffConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanOffConfiguration" message="tns:IPerformanceTuningServiceContract_SetFanOffConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanOffConfigurationResponse" message="tns:IPerformanceTuningServiceContract_SetFanOffConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFanProfileData23">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileData23" message="tns:IPerformanceTuningServiceContract_GetFanProfileData23_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileData23Response" message="tns:IPerformanceTuningServiceContract_GetFanProfileData23_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFanDutyCycleFixedMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanDutyCycleFixedMode" message="tns:IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanDutyCycleFixedModeResponse" message="tns:IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFanProfileDataRN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileDataRN" message="tns:IPerformanceTuningServiceContract_GetFanProfileDataRN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileDataRNResponse" message="tns:IPerformanceTuningServiceContract_GetFanProfileDataRN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFanModeRN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanModeRN" message="tns:IPerformanceTuningServiceContract_SetFanModeRN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPerformanceTuningServiceContract/SetFanModeRNResponse" message="tns:IPerformanceTuningServiceContract_SetFanModeRN_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IPerformanceTuningServiceContract" type="tns:IPerformanceTuningServiceContract">
+    <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPowerLevelControlSupported">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetPowerLevelControlSupported" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetPowerLevelControlSupported_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetPowerLevelControlSupported_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentPowerSettings">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetCurrentPowerSettings" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentPowerSettings_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentPowerSettings_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupportedPowerProfiles">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetSupportedPowerProfiles" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedPowerProfiles_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedPowerProfiles_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFanEcSupported">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/IsFanEcSupported" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_IsFanEcSupported_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_IsFanEcSupported_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFanProfilesSupported">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/IsFanProfilesSupported" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_IsFanProfilesSupported_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_IsFanProfilesSupported_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFanProfileData">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupportedFanModes">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetSupportedFanModes" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedFanModes_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetSupportedFanModes_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentBiosFanModeName">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetCurrentBiosFanModeName" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetCurrentBiosFanModeName_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFanMode">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/SetFanMode" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanMode_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanMode_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomPowerSetting">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/SetCustomPowerSetting" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetCustomPowerSetting_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetCustomPowerSetting_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyBiosPowerProfile">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/ApplyBiosPowerProfile" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_ApplyBiosPowerProfile_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_ApplyBiosPowerProfile_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedFanTypes">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/SupportedFanTypes" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SupportedFanTypes_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SupportedFanTypes_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFanCustom">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/SetFanCustom" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanCustom_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanCustom_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFanOffConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/SetFanOffConfiguration" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanOffConfiguration_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanOffConfiguration_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFanProfileData23">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileData23" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData23_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileData23_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFanDutyCycleFixedMode">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/SetFanDutyCycleFixedMode" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanDutyCycleFixedMode_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFanProfileDataRN">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/GetFanProfileDataRN" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileDataRN_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_GetFanProfileDataRN_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFanModeRN">
+      <soap12:operation soapAction="http://tempuri.org/IPerformanceTuningServiceContract/SetFanModeRN" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanModeRN_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IPerformanceTuningServiceContract_SetFanModeRN_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PerformanceTuningService">
+    <wsdl:port name="WSHttpBinding_IPerformanceTuningServiceContract" binding="tns:WSHttpBinding_IPerformanceTuningServiceContract">
+      <soap12:address location="http://localhost:43568/NssService/service/PerformanceTuning" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:43568/NssService/service/PerformanceTuning</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Spn>host/nux</Spn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
