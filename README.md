@@ -1,6 +1,6 @@
 # FanControl.IntelNUCSoftwareStudioPlugin
 
-WARNING - This code is experimental and you use at your own risk
+# WARNING - This code is experimental and you use at your own risk
 
 I found the Intel NUC Software Studio app for controlling fans a little too basic, and the fan curves too reactive to short changes in CPU temperature, so wanted to let Fan Control control the fans instead
 
@@ -24,7 +24,8 @@ I've tested this with the Intel NUC 11 Extreme i9 model (NUC11BTMi9), I expect i
 - Found one endpoint that effectively just lets me set the fan speed, all the magic happens in StaticFanController.cs
 - If you close Fan Control, you can go back to your normal profiles set in the NUC app
 - This code is perfect garbage and zero time has been spent making it nice to work with, I stopped when it seemed to be working
-Tips for fan settings
+
+#Tips for fan settings
 - CPU fan should be left on a minimum duty, I've found 25% works and is not audible, anything less than this and it stalls and you get "pulsing" as it spins back up to speed
 - Case fans can go to zero, I make everything start to spin up once the CPU or GPU is 65C or above
 - 100% duty makes these fans go to 5000rpm, the CPU gets to 4000 but they sound horrible, so wouldn't recommend that, max 2000 on both case and CPU seems to get air through the case just fine
